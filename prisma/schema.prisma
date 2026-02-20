@@ -1,0 +1,188 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum UserRole {
+  student
+  teacher
+  admin
+}
+
+enum JLPTLevel {
+  N5
+  N4
+  N3
+  N2
+}
+
+enum SubscriptionStatus {
+  active
+  cancelled
+  expired
+  trial
+}
+
+enum LessonStatus {
+  not_started
+  in_progress
+  completed
+}
+
+enum SessionStatus {
+  scheduled
+  completed
+  cancelled
+}
+
+enum QuizType {
+  grammar
+  vocab
+  kanji
+  listening
+}
+
+model User {
+  id                 String             @id @default(cuid())
+  email              String             @unique
+  name               String
+  phone              String?
+  avatarUrl          String?            @map("avatar_url")
+  role               UserRole           @default(student)
+  currentLevel       JLPTLevel          @default(N5) @map("current_level")
+  subscriptionStatus SubscriptionStatus @default(trial) @map("subscription_status")
+  streakCount        Int                @default(0) @map("streak_count")
+  totalXp            Int                @default(0) @map("total_xp")
+  lastActiveAt       DateTime?          @map("last_active_at")
+  createdAt          DateTime           @default(now()) @map("created_at")
+  updatedAt          DateTime           @updatedAt @map("updated_at")
+
+  subscriptions   Subscription[]
+  progress        UserProgress[]
+  aiConversations AIConversation[]
+  studentSessions LiveSession[]     @relation("StudentSessions")
+  teacherSessions LiveSession[]     @relation("TeacherSessions")
+
+  @@map("users")
+}
+
+model Subscription {
+  id                   String             @id @default(cuid())
+  userId               String             @map("user_id")
+  planId               String             @map("plan_id")
+  status               SubscriptionStatus @default(trial)
+  startedAt            DateTime           @default(now()) @map("started_at")
+  expiresAt            DateTime           @map("expires_at")
+  midtransTransactionId String?           @map("midtrans_transaction_id")
+  paymentMethod        String?            @map("payment_method")
+  createdAt            DateTime           @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  plan Plan @relation(fields: [planId], references: [id])
+
+  @@map("subscriptions")
+}
+
+model Plan {
+  id             String  @id @default(cuid())
+  name           String
+  priceIdr       Int     @map("price_idr")
+  durationMonths Int     @map("duration_months")
+  features       Json    @default("[]")
+  isActive       Boolean @default(true) @map("is_active")
+
+  subscriptions Subscription[]
+
+  @@map("plans")
+}
+
+model Lesson {
+  id           String    @id @default(cuid())
+  level        JLPTLevel
+  moduleNumber Int       @map("module_number")
+  titleId      String    @map("title_id")
+  titleJp      String    @map("title_jp")
+  contentMdx   String    @map("content_mdx") @db.Text
+  audioUrl     String?   @map("audio_url")
+  orderIndex   Int       @map("order_index")
+  isPublished  Boolean   @default(false) @map("is_published")
+  createdAt    DateTime  @default(now()) @map("created_at")
+  updatedAt    DateTime  @updatedAt @map("updated_at")
+
+  quizzes  Quiz[]
+  progress UserProgress[]
+
+  @@unique([level, orderIndex])
+  @@map("lessons")
+}
+
+model Quiz {
+  id           String   @id @default(cuid())
+  lessonId     String   @map("lesson_id")
+  questions    Json     @default("[]")
+  passingScore Int      @default(70) @map("passing_score")
+  type         QuizType
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  lesson Lesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  @@map("quizzes")
+}
+
+model UserProgress {
+  id               String       @id @default(cuid())
+  userId           String       @map("user_id")
+  lessonId         String       @map("lesson_id")
+  status           LessonStatus @default(not_started)
+  quizScore        Int?         @map("quiz_score")
+  attempts         Int          @default(0)
+  completedAt      DateTime?    @map("completed_at")
+  timeSpentSeconds Int          @default(0) @map("time_spent_seconds")
+  createdAt        DateTime     @default(now()) @map("created_at")
+  updatedAt        DateTime     @updatedAt @map("updated_at")
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lesson Lesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, lessonId])
+  @@map("user_progress")
+}
+
+model AIConversation {
+  id            String   @id @default(cuid())
+  userId        String   @map("user_id")
+  messages      Json     @default("[]")
+  topic         String?
+  level         JLPTLevel?
+  feedbackScore Int?     @map("feedback_score")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("ai_conversations")
+}
+
+model LiveSession {
+  id              String        @id @default(cuid())
+  teacherId       String        @map("teacher_id")
+  studentId       String        @map("student_id")
+  scheduledAt     DateTime      @map("scheduled_at")
+  durationMinutes Int           @default(30) @map("duration_minutes")
+  meetingUrl      String?       @map("meeting_url")
+  status          SessionStatus @default(scheduled)
+  notes           String?       @db.Text
+  recordingUrl    String?       @map("recording_url")
+  createdAt       DateTime      @default(now()) @map("created_at")
+  updatedAt       DateTime      @updatedAt @map("updated_at")
+
+  teacher User @relation("TeacherSessions", fields: [teacherId], references: [id])
+  student User @relation("StudentSessions", fields: [studentId], references: [id])
+
+  @@map("live_sessions")
+}
