@@ -2,6 +2,8 @@
 
 A modern Japanese language learning platform for Indonesian learners, combining AI-powered self-paced study with live teacher sessions from Japan.
 
+**Live site:** [https://therealratoshen.github.io/Learn-japanese](https://therealratoshen.github.io/Learn-japanese)
+
 ## Overview
 
 - **Self-paced learning** with JLPT-aligned curriculum (N5 → N2)
@@ -12,11 +14,9 @@ A modern Japanese language learning platform for Indonesian learners, combining 
 
 ## Tech Stack
 
-- **Frontend:** Next.js 14+, Tailwind CSS, shadcn/ui
-- **Backend:** Next.js API Routes, Supabase (PostgreSQL), Prisma
-- **AI:** Claude API (Anthropic)
-- **Payments:** Midtrans
-- **Hosting:** Vercel
+- **Frontend:** Next.js, Tailwind CSS v4
+- **Deployment:** GitHub Pages (static export)
+- **CI/CD:** GitHub Actions
 
 ## Getting Started
 
@@ -24,15 +24,34 @@ A modern Japanese language learning platform for Indonesian learners, combining 
 # Install dependencies
 npm install
 
-# Set up environment variables
-cp .env.example .env.local
-
-# Run database migrations
-npx prisma migrate dev
-
 # Start development server
 npm run dev
+
+# Build for production (static export)
+npm run build
 ```
+
+The static build outputs to the `out/` directory, which is deployed to GitHub Pages automatically via GitHub Actions on push to `main`.
+
+## Deployment
+
+This project uses **GitHub Pages** for free hosting. The deployment is automated:
+
+1. Push to `main` branch
+2. GitHub Actions builds the Next.js static export
+3. Deploys to GitHub Pages at `https://therealratoshen.github.io/Learn-japanese`
+
+### To enable GitHub Pages:
+
+1. Go to your repo **Settings** → **Pages**
+2. Under **Source**, select **GitHub Actions**
+3. Push to `main` and the workflow will deploy automatically
+
+### To make the repo public:
+
+1. Go to your repo **Settings** → **General**
+2. Scroll to **Danger Zone** → **Change repository visibility**
+3. Select **Make public**
 
 ## Documentation
 
@@ -40,4 +59,4 @@ npm run dev
 
 ## License
 
-Private - All rights reserved.
+MIT
