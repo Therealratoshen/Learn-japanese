@@ -1,21 +1,21 @@
 # Learn Japanese - NihonGo!
 
-A modern Japanese language learning platform for Indonesian learners, combining AI-powered self-paced study with live teacher sessions from Japan.
+A bilingual (Indonesian + English) Japanese language learning platform, combining AI-powered self-paced study with live teacher sessions from Japan.
 
 ## Overview
 
 - **Self-paced learning** with JLPT-aligned curriculum (N5 → N2)
 - **AI conversation practice** powered by Claude LLM
 - **Live video sessions** with a teacher working in Japan
-- **Indonesian-first** - all explanations in Bahasa Indonesia
-- **Affordable** - priced for the Indonesian market
+- **Bilingual platform** — full UI and lessons in Bahasa Indonesia and English
+- **Affordable** — locally priced for Indonesia (IDR) and competitively priced internationally (USD)
 
 ## Tech Stack
 
-- **Frontend:** Next.js 14+, Tailwind CSS, shadcn/ui
+- **Frontend:** Next.js 14+, Tailwind CSS, shadcn/ui, next-intl (i18n)
 - **Backend:** Next.js API Routes, Supabase (PostgreSQL), Prisma
 - **AI:** Claude API (Anthropic)
-- **Payments:** Midtrans
+- **Payments:** Midtrans (Indonesia/IDR) + Stripe (International/USD)
 - **Hosting:** Vercel
 
 ## Getting Started
