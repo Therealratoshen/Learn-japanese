@@ -66,17 +66,13 @@ export default function Footer() {
         <div>
           <h4 className="text-white font-semibold mb-3">Hubungi Kami</h4>
           <ul className="space-y-2 text-sm">
-            <li className="flex items-center gap-2">
-              <span>&#9993;</span>
-              <span>hello@nihongo.id</span>
+            <li>
+              <Link href="/contact" className="hover:text-white transition">
+                Hubungi via Form Kontak
+              </Link>
             </li>
-            <li className="flex items-center gap-2">
-              <span>&#128241;</span>
-              <span>WhatsApp</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <span>&#128247;</span>
-              <span>@nihongo.id</span>
+            <li className="text-gray-500 text-xs italic">
+              Email & sosial media segera tersedia
             </li>
           </ul>
         </div>

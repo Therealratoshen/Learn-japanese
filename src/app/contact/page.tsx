@@ -47,8 +47,8 @@ export default function ContactPage() {
                       <p className="text-gray-600 text-sm">
                         Chat langsung dengan tim kami
                       </p>
-                      <p className="text-[var(--color-primary)] font-medium text-sm mt-1">
-                        +62 xxx-xxxx-xxxx
+                      <p className="text-gray-400 text-sm mt-1 italic">
+                        Segera tersedia
                       </p>
                     </div>
                   </div>
@@ -61,8 +61,8 @@ export default function ContactPage() {
                       <p className="text-gray-600 text-sm">
                         Kirim email kapan saja
                       </p>
-                      <p className="text-[var(--color-primary)] font-medium text-sm mt-1">
-                        hello@nihongo.id
+                      <p className="text-gray-400 text-sm mt-1 italic">
+                        Segera tersedia
                       </p>
                     </div>
                   </div>
@@ -75,8 +75,8 @@ export default function ContactPage() {
                       <p className="text-gray-600 text-sm">
                         Follow untuk tips harian
                       </p>
-                      <p className="text-[var(--color-primary)] font-medium text-sm mt-1">
-                        @nihongo.id
+                      <p className="text-gray-400 text-sm mt-1 italic">
+                        Segera tersedia
                       </p>
                     </div>
                   </div>
@@ -108,7 +108,7 @@ export default function ContactPage() {
                       Mau kerjasama/kolaborasi?
                     </h3>
                     <p className="text-gray-600 text-sm">
-                      Kirim email ke hello@nihongo.id dengan detail proposal.
+                      Gunakan form kontak di halaman ini dengan detail proposal kamu.
                     </p>
                   </div>
                 </div>
