@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import RegisterForm from "@/components/RegisterForm";
 
 export const metadata: Metadata = {
-  title: "Daftar - NihonGo!",
+  title: "Daftar",
   description:
     "Buat akun NihonGo! gratis dan mulai belajar bahasa Jepang hari ini.",
 };

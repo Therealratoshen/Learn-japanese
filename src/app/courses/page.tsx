@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Kursus - NihonGo!",
+  title: "Kursus",
   description:
     "Jelajahi kursus bahasa Jepang kami dari level N5 pemula hingga N2 mahir. Kurikulum terstruktur berdasarkan standar JLPT.",
 };

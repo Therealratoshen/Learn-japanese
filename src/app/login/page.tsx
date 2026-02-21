@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import LoginForm from "@/components/LoginForm";
 
 export const metadata: Metadata = {
-  title: "Masuk - NihonGo!",
+  title: "Masuk",
   description: "Masuk ke akun NihonGo! kamu dan lanjutkan belajar bahasa Jepang.",
 };
 
