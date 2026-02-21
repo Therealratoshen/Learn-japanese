@@ -1,12 +1,24 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 
 export default function RegisterForm() {
+  const [submitted, setSubmitted] = useState(false);
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setSubmitted(true);
+  }
+
   return (
     <>
       {/* Google Register */}
-      <button className="w-full flex items-center justify-center gap-3 border border-gray-300 rounded-xl py-3 px-4 font-medium text-gray-700 hover:bg-gray-50 transition mb-6">
+      <button
+        type="button"
+        onClick={() => alert("Pendaftaran dengan Google belum tersedia. Fitur ini sedang dalam pengembangan.")}
+        className="w-full flex items-center justify-center gap-3 border border-gray-300 rounded-xl py-3 px-4 font-medium text-gray-700 hover:bg-gray-50 transition mb-6"
+      >
         <svg className="w-5 h-5" viewBox="0 0 24 24">
           <path
             d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"
@@ -37,8 +49,14 @@ export default function RegisterForm() {
         </div>
       </div>
 
+      {submitted && (
+        <div className="bg-amber-50 border border-amber-200 rounded-xl p-3 mb-4 text-sm text-amber-800 text-center">
+          Pendaftaran sedang dalam pengembangan. Nantikan update selanjutnya!
+        </div>
+      )}
+
       {/* Registration Form */}
-      <form onSubmit={(e) => e.preventDefault()} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label
             htmlFor="name"
@@ -49,6 +67,7 @@ export default function RegisterForm() {
           <input
             type="text"
             id="name"
+            required
             placeholder="Masukkan nama lengkap"
             className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition"
           />
@@ -63,6 +82,7 @@ export default function RegisterForm() {
           <input
             type="email"
             id="email"
+            required
             placeholder="nama@email.com"
             className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition"
           />
@@ -77,6 +97,7 @@ export default function RegisterForm() {
           <input
             type="tel"
             id="phone"
+            required
             placeholder="08xxxxxxxxxx"
             className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition"
           />
@@ -91,6 +112,8 @@ export default function RegisterForm() {
           <input
             type="password"
             id="password"
+            required
+            minLength={8}
             placeholder="Minimal 8 karakter"
             className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition"
           />
@@ -104,6 +127,7 @@ export default function RegisterForm() {
           </label>
           <select
             id="level"
+            required
             className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition bg-white"
           >
             <option value="">Pilih level kamu</option>
@@ -119,17 +143,18 @@ export default function RegisterForm() {
           <input
             type="checkbox"
             id="terms"
+            required
             className="mt-1 rounded border-gray-300"
           />
           <label htmlFor="terms" className="text-sm text-gray-600">
             Saya setuju dengan{" "}
-            <a href="#" className="text-[var(--color-primary)] hover:underline">
+            <span className="text-[var(--color-primary)]">
               Syarat &amp; Ketentuan
-            </a>{" "}
+            </span>{" "}
             dan{" "}
-            <a href="#" className="text-[var(--color-primary)] hover:underline">
+            <span className="text-[var(--color-primary)]">
               Kebijakan Privasi
-            </a>
+            </span>
           </label>
         </div>
 
