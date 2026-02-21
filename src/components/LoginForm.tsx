@@ -67,7 +67,9 @@ export default function LoginForm() {
           <input
             type="email"
             id="email"
+            name="email"
             required
+            autoComplete="email"
             placeholder="nama@email.com"
             className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition"
           />
@@ -82,8 +84,10 @@ export default function LoginForm() {
           <input
             type="password"
             id="password"
+            name="password"
             required
             minLength={8}
+            autoComplete="current-password"
             placeholder="Masukkan password"
             className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition"
           />

@@ -67,7 +67,9 @@ export default function RegisterForm() {
           <input
             type="text"
             id="name"
+            name="name"
             required
+            autoComplete="name"
             placeholder="Masukkan nama lengkap"
             className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition"
           />
@@ -82,7 +84,9 @@ export default function RegisterForm() {
           <input
             type="email"
             id="email"
+            name="email"
             required
+            autoComplete="email"
             placeholder="nama@email.com"
             className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition"
           />
@@ -97,7 +101,9 @@ export default function RegisterForm() {
           <input
             type="tel"
             id="phone"
+            name="phone"
             required
+            autoComplete="tel"
             placeholder="08xxxxxxxxxx"
             className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition"
           />
@@ -112,8 +118,10 @@ export default function RegisterForm() {
           <input
             type="password"
             id="password"
+            name="password"
             required
             minLength={8}
+            autoComplete="new-password"
             placeholder="Minimal 8 karakter"
             className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition"
           />
@@ -127,6 +135,7 @@ export default function RegisterForm() {
           </label>
           <select
             id="level"
+            name="level"
             required
             className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition bg-white"
           >
@@ -143,16 +152,17 @@ export default function RegisterForm() {
           <input
             type="checkbox"
             id="terms"
+            name="terms"
             required
             className="mt-1 rounded border-gray-300"
           />
           <label htmlFor="terms" className="text-sm text-gray-600">
             Saya setuju dengan{" "}
-            <span className="text-[var(--color-primary)]">
+            <span className="text-[var(--color-primary)] underline cursor-pointer">
               Syarat &amp; Ketentuan
             </span>{" "}
             dan{" "}
-            <span className="text-[var(--color-primary)]">
+            <span className="text-[var(--color-primary)] underline cursor-pointer">
               Kebijakan Privasi
             </span>
           </label>

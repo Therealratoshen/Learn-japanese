@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Dashboard - NihonGo!",
+  title: "Dashboard",
   description: "Dashboard belajar bahasa Jepang kamu di NihonGo!",
 };
 
@@ -74,43 +74,43 @@ export default function DashboardPage() {
                   {[
                     {
                       num: 1,
-                      title: "Hiragana: A-Ko (&#12354;-&#12371;)",
+                      title: "Hiragana: A-Ko (\u3042-\u3053)",
                       status: "completed",
                       score: "95%",
                     },
                     {
                       num: 2,
-                      title: "Hiragana: Sa-To (&#12373;-&#12392;)",
+                      title: "Hiragana: Sa-To (\u3055-\u3068)",
                       status: "completed",
                       score: "88%",
                     },
                     {
                       num: 3,
-                      title: "Hiragana: Na-Ho (&#12394;-&#12411;)",
+                      title: "Hiragana: Na-Ho (\u306A-\u307B)",
                       status: "completed",
                       score: "92%",
                     },
                     {
                       num: 4,
-                      title: "Hiragana: Ma-Yo (&#12414;-&#12424;)",
+                      title: "Hiragana: Ma-Yo (\u307E-\u3088)",
                       status: "completed",
                       score: "90%",
                     },
                     {
                       num: 5,
-                      title: "Hiragana: Ra-N (&#12425;-&#12435;)",
+                      title: "Hiragana: Ra-N (\u3089-\u3093)",
                       status: "completed",
                       score: "87%",
                     },
                     {
                       num: 6,
-                      title: "Katakana: A-Ko (&#12450;-&#12467;)",
+                      title: "Katakana: A-Ko (\u30A2-\u30B3)",
                       status: "current",
                       score: null,
                     },
                     {
                       num: 7,
-                      title: "Katakana: Sa-To (&#12469;-&#12488;)",
+                      title: "Katakana: Sa-To (\u30B5-\u30C8)",
                       status: "locked",
                       score: null,
                     },
@@ -135,18 +135,15 @@ export default function DashboardPage() {
                         }`}
                       >
                         {lesson.status === "completed" ? (
-                          <span>&#10003;</span>
+                          <span>{"\u2713"}</span>
                         ) : (
                           lesson.num
                         )}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <div
-                          className="font-medium text-sm truncate"
-                          dangerouslySetInnerHTML={{
-                            __html: `Pelajaran ${lesson.num}: ${lesson.title}`,
-                          }}
-                        />
+                        <div className="font-medium text-sm truncate">
+                          Pelajaran {lesson.num}: {lesson.title}
+                        </div>
                       </div>
                       {lesson.score && (
                         <span className="text-sm text-green-600 font-medium shrink-0">

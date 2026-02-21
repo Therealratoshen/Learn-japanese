@@ -55,6 +55,7 @@ export default function Navbar() {
           className="md:hidden p-2"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
+          aria-expanded={menuOpen}
         >
           <div className="space-y-1.5">
             <span

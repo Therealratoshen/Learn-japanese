@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Tentang Kami - NihonGo!",
+  title: "Tentang Kami",
   description:
     "Kenali lebih dekat NihonGo! - platform belajar bahasa Jepang untuk orang Indonesia dengan guru yang tinggal di Jepang.",
 };
@@ -142,17 +142,17 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                icon: "&#127919;",
+                icon: "\u{1F3AF}",
                 title: "Aksesibilitas",
                 desc: "Belajar bahasa Jepang tidak harus mahal. Kami menyediakan opsi gratis dan harga yang disesuaikan dengan daya beli Indonesia.",
               },
               {
-                icon: "&#9989;",
+                icon: "\u2705",
                 title: "Kualitas",
                 desc: "Kurikulum terstruktur berdasarkan standar JLPT, dengan materi yang dibuat oleh guru berpengalaman langsung dari Jepang.",
               },
               {
-                icon: "&#129309;",
+                icon: "\u{1F91D}",
                 title: "Komunitas",
                 desc: "Belajar lebih menyenangkan bersama. Bergabung dengan komunitas pelajar dan alumni yang sudah di Jepang.",
               },
@@ -161,10 +161,7 @@ export default function AboutPage() {
                 key={i}
                 className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-center"
               >
-                <div
-                  className="text-4xl mb-4"
-                  dangerouslySetInnerHTML={{ __html: value.icon }}
-                />
+                <div className="text-4xl mb-4">{value.icon}</div>
                 <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
                 <p className="text-gray-600">{value.desc}</p>
               </div>

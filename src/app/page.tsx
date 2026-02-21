@@ -85,32 +85,32 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                icon: "&#129302;",
+                icon: "\u{1F916}",
                 title: "AI Practice 24/7",
                 desc: "Latihan percakapan dengan AI kapan saja. Grammar checker, quiz generator, dan conversation bot yang bisa bahasa Indonesia.",
               },
               {
-                icon: "&#128104;&#8205;&#127979;",
+                icon: "\u{1F468}\u{200D}\u{1F3EB}",
                 title: "Guru dari Jepang",
                 desc: "Sesi live video dengan guru yang tinggal & bekerja di Jepang. Bukan cuma teori, tapi pengalaman nyata.",
               },
               {
-                icon: "&#127470;&#127465;",
+                icon: "\u{1F1EE}\u{1F1E9}",
                 title: "100% Bahasa Indonesia",
                 desc: "Semua penjelasan, UI, dan materi dalam Bahasa Indonesia. Termasuk perbandingan tata bahasa Jepang-Indonesia.",
               },
               {
-                icon: "&#128218;",
+                icon: "\u{1F4DA}",
                 title: "Kurikulum JLPT",
                 desc: "Materi terstruktur dari N5 sampai N2. Setiap level ada pelajaran, kuis, dan latihan yang sesuai standar JLPT.",
               },
               {
-                icon: "&#128188;",
+                icon: "\u{1F4BC}",
                 title: "Fokus Karir",
                 desc: "Persiapan visa Tokutei Ginou, beasiswa MEXT, wawancara perusahaan Jepang, dan kehidupan sehari-hari di Jepang.",
               },
               {
-                icon: "&#128176;",
+                icon: "\u{1F4B0}",
                 title: "Harga Terjangkau",
                 desc: "Mulai dari Rp 99.000/bulan. Harga disesuaikan untuk pelajar Indonesia dengan opsi gratis tersedia.",
               },
@@ -119,10 +119,7 @@ export default function Home() {
                 key={i}
                 className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-300"
               >
-                <div
-                  className="text-4xl mb-4"
-                  dangerouslySetInnerHTML={{ __html: feature.icon }}
-                />
+                <div className="text-4xl mb-4">{feature.icon}</div>
                 <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
                 <p className="text-gray-600">{feature.desc}</p>
               </div>
@@ -332,17 +329,17 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-6">
             {[
               {
-                icon: "&#127793;",
+                icon: "\u{1F331}",
                 title: "Platform Baru",
                 desc: "Kami baru memulai, jadi kamu bisa ikut membentuk platform ini sesuai kebutuhanmu.",
               },
               {
-                icon: "&#128172;",
+                icon: "\u{1F4AC}",
                 title: "Feedback Langsung",
                 desc: "Sebagai pelajar awal, masukanmu langsung didengar dan diterapkan.",
               },
               {
-                icon: "&#127873;",
+                icon: "\u{1F381}",
                 title: "Harga Early Adopter",
                 desc: "Daftar sekarang dan dapatkan akses dengan harga spesial untuk pendaftar awal.",
               },
@@ -351,10 +348,7 @@ export default function Home() {
                 key={i}
                 className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100"
               >
-                <div
-                  className="text-4xl mb-4"
-                  dangerouslySetInnerHTML={{ __html: item.icon }}
-                />
+                <div className="text-4xl mb-4">{item.icon}</div>
                 <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
                 <p className="text-gray-600 text-sm">{item.desc}</p>
               </div>
