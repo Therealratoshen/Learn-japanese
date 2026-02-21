@@ -1,12 +1,24 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 
 export default function LoginForm() {
+  const [submitted, setSubmitted] = useState(false);
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setSubmitted(true);
+  }
+
   return (
     <>
       {/* Google Login */}
-      <button className="w-full flex items-center justify-center gap-3 border border-gray-300 rounded-xl py-3 px-4 font-medium text-gray-700 hover:bg-gray-50 transition mb-6">
+      <button
+        type="button"
+        onClick={() => alert("Login dengan Google belum tersedia. Fitur ini sedang dalam pengembangan.")}
+        className="w-full flex items-center justify-center gap-3 border border-gray-300 rounded-xl py-3 px-4 font-medium text-gray-700 hover:bg-gray-50 transition mb-6"
+      >
         <svg className="w-5 h-5" viewBox="0 0 24 24">
           <path
             d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"
@@ -37,8 +49,14 @@ export default function LoginForm() {
         </div>
       </div>
 
+      {submitted && (
+        <div className="bg-amber-50 border border-amber-200 rounded-xl p-3 mb-4 text-sm text-amber-800 text-center">
+          Fitur login sedang dalam pengembangan. Nantikan update selanjutnya!
+        </div>
+      )}
+
       {/* Email Login Form */}
-      <form onSubmit={(e) => e.preventDefault()} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label
             htmlFor="email"
@@ -49,6 +67,7 @@ export default function LoginForm() {
           <input
             type="email"
             id="email"
+            required
             placeholder="nama@email.com"
             className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition"
           />
@@ -63,6 +82,8 @@ export default function LoginForm() {
           <input
             type="password"
             id="password"
+            required
+            minLength={8}
             placeholder="Masukkan password"
             className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition"
           />
@@ -72,12 +93,9 @@ export default function LoginForm() {
             <input type="checkbox" className="rounded border-gray-300" />
             <span className="text-gray-600">Ingat saya</span>
           </label>
-          <a
-            href="#"
-            className="text-[var(--color-primary)] hover:underline"
-          >
+          <span className="text-gray-400 cursor-default">
             Lupa password?
-          </a>
+          </span>
         </div>
         <button
           type="submit"
