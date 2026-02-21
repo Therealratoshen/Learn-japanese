@@ -68,11 +68,11 @@ export default function Footer() {
           <ul className="space-y-2 text-sm">
             <li>
               <Link href="/contact" className="hover:text-white transition">
-                Hubungi via Form Kontak
+                Kontak
               </Link>
             </li>
             <li className="text-gray-500 text-xs italic">
-              Email & sosial media segera tersedia
+              Saluran kontak sedang disiapkan
             </li>
           </ul>
         </div>
