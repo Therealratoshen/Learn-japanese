@@ -35,10 +35,9 @@ export default function AboutPage() {
               <h2 className="text-3xl font-bold mb-4">Cerita Kami</h2>
               <p className="text-gray-600 mb-4">
                 NihonGo! lahir dari pengalaman nyata tinggal dan bekerja di
-                Jepang selama lebih dari 5 tahun. Kami melihat banyak orang
-                Indonesia yang ingin belajar bahasa Jepang tapi terkendala
-                harga, metode yang membosankan, dan kurangnya konteks budaya
-                yang relevan.
+                Jepang. Kami melihat banyak orang Indonesia yang ingin belajar
+                bahasa Jepang tapi terkendala harga, metode yang membosankan,
+                dan kurangnya konteks budaya yang relevan.
               </p>
               <p className="text-gray-600 mb-4">
                 Kebanyakan platform belajar bahasa Jepang dibuat untuk pasar
@@ -107,28 +106,28 @@ export default function AboutPage() {
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
               <div>
-                <div className="text-2xl font-bold text-[var(--color-primary)]">5+</div>
-                <div className="text-sm text-gray-500">Tahun di Jepang</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-[var(--color-primary)]">500+</div>
-                <div className="text-sm text-gray-500">Murid Dibimbing</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-[var(--color-primary)]">1000+</div>
-                <div className="text-sm text-gray-500">Sesi Mengajar</div>
-              </div>
-              <div>
                 <div className="text-2xl font-bold text-[var(--color-primary)]">N1</div>
                 <div className="text-sm text-gray-500">Sertifikasi JLPT</div>
               </div>
+              <div>
+                <div className="text-2xl font-bold text-[var(--color-primary)]">N5-N2</div>
+                <div className="text-sm text-gray-500">Level Mengajar</div>
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-[var(--color-primary)]">ID</div>
+                <div className="text-sm text-gray-500">Penjelasan Bahasa</div>
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-[var(--color-primary)]">JP</div>
+                <div className="text-sm text-gray-500">Berbasis di Jepang</div>
+              </div>
             </div>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Berpengalaman tinggal dan bekerja di Jepang, mengajar bahasa
-              Jepang adalah passion sekaligus misi untuk membantu lebih banyak
-              orang Indonesia meraih mimpi mereka di Jepang. Baik untuk kerja
-              melalui program Tokutei Ginou, beasiswa MEXT, atau sekadar
-              menikmati budaya Jepang dengan lebih mendalam.
+              Tinggal dan bekerja di Jepang, mengajar bahasa Jepang adalah
+              passion sekaligus misi untuk membantu lebih banyak orang Indonesia
+              meraih mimpi mereka di Jepang. Baik untuk kerja melalui program
+              Tokutei Ginou, beasiswa MEXT, atau sekadar menikmati budaya Jepang
+              dengan lebih mendalam.
             </p>
           </div>
         </div>

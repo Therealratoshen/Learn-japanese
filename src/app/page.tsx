@@ -11,7 +11,7 @@ export default function Home() {
       <section className="pt-28 pb-20 px-4 text-center bg-gradient-to-b from-red-50 to-[var(--color-light)]">
         <div className="max-w-4xl mx-auto">
           <div className="inline-block bg-amber-100 text-amber-800 text-sm px-3 py-1 rounded-full mb-6">
-            Platform Belajar Bahasa Jepang #1 untuk Orang Indonesia
+            Platform Belajar Bahasa Jepang untuk Orang Indonesia
           </div>
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
             Belajar Bahasa Jepang
@@ -58,10 +58,10 @@ export default function Home() {
       <section className="py-12 px-4 bg-white border-b border-gray-100">
         <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {[
-            { value: "500+", label: "Pelajar Aktif" },
-            { value: "4", label: "Level JLPT" },
-            { value: "50+", label: "Materi Pelajaran" },
-            { value: "5+", label: "Tahun di Jepang" },
+            { value: "N5-N2", label: "Level JLPT" },
+            { value: "4", label: "Paket Kursus" },
+            { value: "100%", label: "Bahasa Indonesia" },
+            { value: "24/7", label: "AI Practice" },
           ].map((stat, i) => (
             <div key={i}>
               <div className="text-3xl md:text-4xl font-bold text-[var(--color-primary)]">
@@ -92,7 +92,7 @@ export default function Home() {
               {
                 icon: "&#128104;&#8205;&#127979;",
                 title: "Guru dari Jepang",
-                desc: "Sesi live video dengan guru yang sudah 5+ tahun tinggal & bekerja di Jepang. Bukan cuma teori, tapi pengalaman nyata.",
+                desc: "Sesi live video dengan guru yang tinggal & bekerja di Jepang. Bukan cuma teori, tapi pengalaman nyata.",
               },
               {
                 icon: "&#127470;&#127465;",
@@ -112,7 +112,7 @@ export default function Home() {
               {
                 icon: "&#128176;",
                 title: "Harga Terjangkau",
-                desc: "Mulai dari Rp 99.000/bulan. 5-10x lebih murah dari platform sejenis dengan fitur lebih lengkap.",
+                desc: "Mulai dari Rp 99.000/bulan. Harga disesuaikan untuk pelajar Indonesia dengan opsi gratis tersedia.",
               },
             ].map((feature, i) => (
               <div
@@ -183,8 +183,8 @@ export default function Home() {
               </h2>
               <p className="text-gray-600 mb-6">
                 Guru kami bukan sekadar pengajar bahasa Jepang biasa. Dengan
-                pengalaman lebih dari 5 tahun tinggal dan bekerja di Jepang,
-                kamu akan mendapatkan pengetahuan praktis tentang:
+                pengalaman tinggal dan bekerja di Jepang, kamu akan mendapatkan
+                pengetahuan praktis tentang:
               </p>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-start gap-3">
@@ -218,26 +218,26 @@ export default function Home() {
               <div className="text-center">
                 <h3 className="text-xl font-bold mb-1">Sensei</h3>
                 <p className="text-[var(--color-primary)] text-sm font-medium mb-4">
-                  5+ Tahun di Jepang
+                  Tinggal & Bekerja di Jepang
                 </p>
                 <div className="grid grid-cols-3 gap-4 text-center">
                   <div>
                     <div className="text-2xl font-bold text-[var(--color-primary)]">
-                      500+
+                      N1
                     </div>
-                    <div className="text-xs text-gray-500">Murid</div>
+                    <div className="text-xs text-gray-500">JLPT</div>
                   </div>
                   <div>
                     <div className="text-2xl font-bold text-[var(--color-primary)]">
-                      1000+
+                      N5-N2
                     </div>
-                    <div className="text-xs text-gray-500">Sesi</div>
+                    <div className="text-xs text-gray-500">Mengajar</div>
                   </div>
                   <div>
                     <div className="text-2xl font-bold text-[var(--color-primary)]">
-                      4.9
+                      ID
                     </div>
-                    <div className="text-xs text-gray-500">Rating</div>
+                    <div className="text-xs text-gray-500">Bahasa</div>
                   </div>
                 </div>
               </div>
@@ -318,62 +318,45 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Join Early Section */}
       <section className="py-20 px-4 bg-[var(--color-light)]">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-            Apa Kata Mereka?
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Jadilah Pelajar Pertama Kami
           </h2>
-          <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-            Dengar cerita dari pelajar yang sudah merasakan manfaatnya
+          <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
+            NihonGo! adalah platform baru yang sedang kami bangun dengan
+            sepenuh hati. Kami belum punya review karena kami ingin jujur
+            &mdash; tapi kami yakin kamu akan menjadi cerita sukses pertama kami.
           </p>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6">
             {[
               {
-                name: "Rina S.",
-                role: "Pelajar N5 &rarr; N4",
-                text: "Saya mulai dari nol dan dalam 3 bulan sudah bisa percakapan dasar. AI practice-nya sangat membantu karena bisa latihan kapan saja!",
-                rating: 5,
+                icon: "&#127793;",
+                title: "Platform Baru",
+                desc: "Kami baru memulai, jadi kamu bisa ikut membentuk platform ini sesuai kebutuhanmu.",
               },
               {
-                name: "Budi P.",
-                role: "Persiapan Tokutei Ginou",
-                text: "Platform ini berbeda karena gurunya benar-benar tinggal di Jepang. Tips tentang budaya kerja Jepang sangat berguna untuk persiapan visa saya.",
-                rating: 5,
+                icon: "&#128172;",
+                title: "Feedback Langsung",
+                desc: "Sebagai pelajar awal, masukanmu langsung didengar dan diterapkan.",
               },
               {
-                name: "Sari W.",
-                role: "Pelajar N3",
-                text: "Harganya sangat terjangkau dibanding les privat. Materi JLPT-nya lengkap dan penjelasan dalam bahasa Indonesia bikin gampang paham.",
-                rating: 5,
+                icon: "&#127873;",
+                title: "Harga Early Adopter",
+                desc: "Daftar sekarang dan dapatkan akses dengan harga spesial untuk pendaftar awal.",
               },
-            ].map((testimonial, i) => (
+            ].map((item, i) => (
               <div
                 key={i}
                 className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100"
               >
-                <div className="flex gap-1 mb-3">
-                  {Array.from({ length: testimonial.rating }).map((_, j) => (
-                    <span key={j} className="text-amber-400">
-                      &#9733;
-                    </span>
-                  ))}
-                </div>
-                <p className="text-gray-600 mb-4">&ldquo;{testimonial.text}&rdquo;</p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-red-100 to-amber-100 flex items-center justify-center text-sm font-bold text-[var(--color-primary)]">
-                    {testimonial.name[0]}
-                  </div>
-                  <div>
-                    <div className="font-semibold text-sm">
-                      {testimonial.name}
-                    </div>
-                    <div
-                      className="text-xs text-gray-500"
-                      dangerouslySetInnerHTML={{ __html: testimonial.role }}
-                    />
-                  </div>
-                </div>
+                <div
+                  className="text-4xl mb-4"
+                  dangerouslySetInnerHTML={{ __html: item.icon }}
+                />
+                <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
+                <p className="text-gray-600 text-sm">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -457,7 +440,7 @@ export default function Home() {
               >
                 {plan.highlight && (
                   <div className="text-xs font-bold bg-white text-[var(--color-primary)] px-2 py-1 rounded-full inline-block mb-3">
-                    PALING POPULER
+                    REKOMENDASI
                   </div>
                 )}
                 <h3 className="text-lg font-semibold mb-1">{plan.name}</h3>
@@ -515,11 +498,11 @@ export default function Home() {
               },
               {
                 q: "Siapa gurunya?",
-                a: "Guru kami adalah orang Indonesia yang sudah 5+ tahun tinggal dan bekerja di Jepang. Bisa memberikan konteks budaya dan kehidupan nyata di Jepang.",
+                a: "Guru kami adalah orang Indonesia yang tinggal dan bekerja di Jepang dengan sertifikasi JLPT N1. Bisa memberikan konteks budaya dan kehidupan nyata di Jepang.",
               },
               {
                 q: "Bisa bayar pakai apa saja?",
-                a: "Transfer bank, GoPay, OVO, DANA, ShopeePay, dan kartu kredit. Semua melalui payment gateway Midtrans.",
+                a: "Sistem pembayaran sedang kami siapkan. Nantinya akan mendukung transfer bank dan e-wallet populer di Indonesia.",
               },
               {
                 q: "Apakah ada sertifikat?",
@@ -527,7 +510,7 @@ export default function Home() {
               },
               {
                 q: "Apakah bisa belajar di handphone?",
-                a: "Ya! Platform kami 100% responsive dan bisa diakses dari browser handphone. Aplikasi mobile akan segera hadir.",
+                a: "Ya! Platform kami 100% responsive dan bisa diakses dari browser handphone.",
               },
               {
                 q: "Bagaimana jika saya tidak puas?",
@@ -558,8 +541,8 @@ export default function Home() {
             Siap Belajar Bahasa Jepang?
           </h2>
           <p className="text-red-100 text-lg mb-8">
-            Bergabung dengan ratusan pelajar Indonesia yang sudah memulai
-            perjalanan mereka ke Jepang.
+            Mulai perjalanan bahasa Jepangmu bersama NihonGo! &mdash; platform
+            yang dibuat khusus untuk pelajar Indonesia.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
