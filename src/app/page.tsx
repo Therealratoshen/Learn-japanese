@@ -1,40 +1,14 @@
+import Link from "next/link";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+
 export default function Home() {
   return (
     <div className="min-h-screen">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-sm border-b border-gray-200 z-50">
-        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="text-2xl">🇯🇵</span>
-            <span className="text-xl font-bold text-[var(--color-primary)]">
-              NihonGo!
-            </span>
-          </div>
-          <div className="hidden md:flex items-center gap-6 text-sm">
-            <a href="#features" className="hover:text-[var(--color-primary)]">
-              Fitur
-            </a>
-            <a href="#levels" className="hover:text-[var(--color-primary)]">
-              Level
-            </a>
-            <a href="#pricing" className="hover:text-[var(--color-primary)]">
-              Harga
-            </a>
-            <a href="#faq" className="hover:text-[var(--color-primary)]">
-              FAQ
-            </a>
-          </div>
-          <a
-            href="#pricing"
-            className="bg-[var(--color-primary)] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[var(--color-primary-dark)] transition"
-          >
-            Mulai Belajar
-          </a>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* Hero Section */}
-      <section className="pt-28 pb-16 px-4 text-center bg-gradient-to-b from-red-50 to-[var(--color-light)]">
+      <section className="pt-28 pb-20 px-4 text-center bg-gradient-to-b from-red-50 to-[var(--color-light)]">
         <div className="max-w-4xl mx-auto">
           <div className="inline-block bg-amber-100 text-amber-800 text-sm px-3 py-1 rounded-full mb-6">
             Platform Belajar Bahasa Jepang #1 untuk Orang Indonesia
@@ -52,30 +26,50 @@ export default function Home() {
             Indonesia.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="#pricing"
+            <Link
+              href="/register"
               className="bg-[var(--color-primary)] text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-[var(--color-primary-dark)] transition shadow-lg"
             >
               Mulai Gratis 7 Hari
-            </a>
-            <a
-              href="#features"
+            </Link>
+            <Link
+              href="/courses"
               className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl text-lg font-semibold hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition"
             >
-              Lihat Fitur
-            </a>
+              Lihat Kursus
+            </Link>
           </div>
-          <div className="mt-10 flex justify-center gap-8 text-sm text-gray-500">
+          <div className="mt-10 flex flex-wrap justify-center gap-6 md:gap-8 text-sm text-gray-500">
             <div className="flex items-center gap-1">
-              <span>&#10003;</span> Penjelasan Bahasa Indonesia
+              <span className="text-green-500">&#10003;</span> Penjelasan
+              Bahasa Indonesia
             </div>
             <div className="flex items-center gap-1">
-              <span>&#10003;</span> Guru di Jepang
+              <span className="text-green-500">&#10003;</span> Guru di Jepang
             </div>
             <div className="flex items-center gap-1">
-              <span>&#10003;</span> AI Practice 24/7
+              <span className="text-green-500">&#10003;</span> AI Practice 24/7
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-12 px-4 bg-white border-b border-gray-100">
+        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          {[
+            { value: "500+", label: "Pelajar Aktif" },
+            { value: "4", label: "Level JLPT" },
+            { value: "50+", label: "Materi Pelajaran" },
+            { value: "5+", label: "Tahun di Jepang" },
+          ].map((stat, i) => (
+            <div key={i}>
+              <div className="text-3xl md:text-4xl font-bold text-[var(--color-primary)]">
+                {stat.value}
+              </div>
+              <div className="text-sm text-gray-500 mt-1">{stat.label}</div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -91,45 +85,163 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                icon: "🤖",
+                icon: "&#129302;",
                 title: "AI Practice 24/7",
                 desc: "Latihan percakapan dengan AI kapan saja. Grammar checker, quiz generator, dan conversation bot yang bisa bahasa Indonesia.",
               },
               {
-                icon: "👨‍🏫",
+                icon: "&#128104;&#8205;&#127979;",
                 title: "Guru dari Jepang",
                 desc: "Sesi live video dengan guru yang sudah 5+ tahun tinggal & bekerja di Jepang. Bukan cuma teori, tapi pengalaman nyata.",
               },
               {
-                icon: "🇮🇩",
+                icon: "&#127470;&#127465;",
                 title: "100% Bahasa Indonesia",
                 desc: "Semua penjelasan, UI, dan materi dalam Bahasa Indonesia. Termasuk perbandingan tata bahasa Jepang-Indonesia.",
               },
               {
-                icon: "📚",
+                icon: "&#128218;",
                 title: "Kurikulum JLPT",
                 desc: "Materi terstruktur dari N5 sampai N2. Setiap level ada pelajaran, kuis, dan latihan yang sesuai standar JLPT.",
               },
               {
-                icon: "💼",
+                icon: "&#128188;",
                 title: "Fokus Karir",
                 desc: "Persiapan visa Tokutei Ginou, beasiswa MEXT, wawancara perusahaan Jepang, dan kehidupan sehari-hari di Jepang.",
               },
               {
-                icon: "💰",
+                icon: "&#128176;",
                 title: "Harga Terjangkau",
                 desc: "Mulai dari Rp 99.000/bulan. 5-10x lebih murah dari platform sejenis dengan fitur lebih lengkap.",
               },
             ].map((feature, i) => (
               <div
                 key={i}
-                className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition"
+                className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-300"
               >
-                <div className="text-4xl mb-4">{feature.icon}</div>
+                <div
+                  className="text-4xl mb-4"
+                  dangerouslySetInnerHTML={{ __html: feature.icon }}
+                />
                 <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
                 <p className="text-gray-600">{feature.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
+            Cara Kerjanya
+          </h2>
+          <p className="text-gray-600 text-center mb-14 max-w-2xl mx-auto">
+            3 langkah mudah untuk mulai belajar bahasa Jepang
+          </p>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                step: "1",
+                title: "Daftar & Pilih Level",
+                desc: "Buat akun gratis dan pilih level JLPT kamu. Belum tahu levelnya? Ikuti tes penempatan gratis kami.",
+              },
+              {
+                step: "2",
+                title: "Belajar & Latihan",
+                desc: "Akses pelajaran terstruktur, latihan dengan AI 24/7, dan kerjakan kuis untuk mengukur kemajuan.",
+              },
+              {
+                step: "3",
+                title: "Sesi Live & Sertifikasi",
+                desc: "Ikuti sesi live dengan guru untuk koreksi langsung, dan persiapkan ujian JLPT resmi.",
+              },
+            ].map((item, i) => (
+              <div key={i} className="text-center">
+                <div className="w-14 h-14 rounded-full bg-[var(--color-primary)] text-white text-2xl font-bold flex items-center justify-center mx-auto mb-4">
+                  {item.step}
+                </div>
+                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                <p className="text-gray-600">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Teacher Section */}
+      <section className="py-20 px-4 bg-gradient-to-b from-[var(--color-light)] to-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-block bg-red-100 text-[var(--color-primary)] text-sm px-3 py-1 rounded-full mb-4">
+                Guru Kami
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Belajar dari yang Berpengalaman
+              </h2>
+              <p className="text-gray-600 mb-6">
+                Guru kami bukan sekadar pengajar bahasa Jepang biasa. Dengan
+                pengalaman lebih dari 5 tahun tinggal dan bekerja di Jepang,
+                kamu akan mendapatkan pengetahuan praktis tentang:
+              </p>
+              <ul className="space-y-3 text-gray-600">
+                <li className="flex items-start gap-3">
+                  <span className="text-[var(--color-primary)] mt-1">&#10003;</span>
+                  <span>Budaya kerja Jepang &amp; etika bisnis</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-[var(--color-primary)] mt-1">&#10003;</span>
+                  <span>Kehidupan sehari-hari di Jepang</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-[var(--color-primary)] mt-1">&#10003;</span>
+                  <span>Tips persiapan visa &amp; beasiswa MEXT</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-[var(--color-primary)] mt-1">&#10003;</span>
+                  <span>Bahasa Jepang yang benar-benar dipakai sehari-hari</span>
+                </li>
+              </ul>
+              <Link
+                href="/about"
+                className="inline-block mt-6 text-[var(--color-primary)] font-semibold hover:underline"
+              >
+                Pelajari lebih lanjut &rarr;
+              </Link>
+            </div>
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+              <div className="w-24 h-24 bg-gradient-to-br from-red-100 to-amber-100 rounded-full flex items-center justify-center text-4xl mx-auto mb-4">
+                &#128104;&#8205;&#127979;
+              </div>
+              <div className="text-center">
+                <h3 className="text-xl font-bold mb-1">Sensei</h3>
+                <p className="text-[var(--color-primary)] text-sm font-medium mb-4">
+                  5+ Tahun di Jepang
+                </p>
+                <div className="grid grid-cols-3 gap-4 text-center">
+                  <div>
+                    <div className="text-2xl font-bold text-[var(--color-primary)]">
+                      500+
+                    </div>
+                    <div className="text-xs text-gray-500">Murid</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-[var(--color-primary)]">
+                      1000+
+                    </div>
+                    <div className="text-xs text-gray-500">Sesi</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-[var(--color-primary)]">
+                      4.9
+                    </div>
+                    <div className="text-xs text-gray-500">Rating</div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -148,39 +260,120 @@ export default function Home() {
               {
                 level: "N5",
                 label: "Pemula",
+                duration: "3 bulan",
+                lessons: "15 pelajaran",
                 desc: "Hiragana, Katakana, 100 Kanji, percakapan dasar",
-                color: "bg-green-100 text-green-800",
+                color: "bg-green-100 text-green-800 border-green-200",
               },
               {
                 level: "N4",
                 label: "Dasar",
+                duration: "3 bulan",
+                lessons: "15 pelajaran",
                 desc: "300 Kanji, grammar dasar, percakapan sehari-hari",
-                color: "bg-blue-100 text-blue-800",
+                color: "bg-blue-100 text-blue-800 border-blue-200",
               },
               {
                 level: "N3",
                 label: "Menengah",
+                duration: "4 bulan",
+                lessons: "12 pelajaran",
                 desc: "650 Kanji, grammar menengah, membaca artikel",
-                color: "bg-purple-100 text-purple-800",
+                color: "bg-purple-100 text-purple-800 border-purple-200",
               },
               {
                 level: "N2",
                 label: "Mahir",
+                duration: "4 bulan",
+                lessons: "10 pelajaran",
                 desc: "1000+ Kanji, grammar lanjut, dunia kerja Jepang",
-                color: "bg-red-100 text-red-800",
+                color: "bg-red-100 text-red-800 border-red-200",
               },
             ].map((item, i) => (
               <div
                 key={i}
-                className="rounded-2xl border border-gray-200 p-6 text-center hover:border-[var(--color-primary)] transition"
+                className="rounded-2xl border border-gray-200 p-6 text-center hover:border-[var(--color-primary)] hover:shadow-md transition-all duration-300"
               >
                 <div
                   className={`inline-block px-3 py-1 rounded-full text-sm font-bold mb-3 ${item.color}`}
                 >
                   JLPT {item.level}
                 </div>
-                <h3 className="text-lg font-semibold mb-2">{item.label}</h3>
+                <h3 className="text-lg font-semibold mb-1">{item.label}</h3>
+                <div className="text-xs text-gray-400 mb-3">
+                  {item.duration} &middot; {item.lessons}
+                </div>
                 <p className="text-gray-600 text-sm">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <Link
+              href="/courses"
+              className="text-[var(--color-primary)] font-semibold hover:underline"
+            >
+              Lihat detail semua kursus &rarr;
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-20 px-4 bg-[var(--color-light)]">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
+            Apa Kata Mereka?
+          </h2>
+          <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+            Dengar cerita dari pelajar yang sudah merasakan manfaatnya
+          </p>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                name: "Rina S.",
+                role: "Pelajar N5 &rarr; N4",
+                text: "Saya mulai dari nol dan dalam 3 bulan sudah bisa percakapan dasar. AI practice-nya sangat membantu karena bisa latihan kapan saja!",
+                rating: 5,
+              },
+              {
+                name: "Budi P.",
+                role: "Persiapan Tokutei Ginou",
+                text: "Platform ini berbeda karena gurunya benar-benar tinggal di Jepang. Tips tentang budaya kerja Jepang sangat berguna untuk persiapan visa saya.",
+                rating: 5,
+              },
+              {
+                name: "Sari W.",
+                role: "Pelajar N3",
+                text: "Harganya sangat terjangkau dibanding les privat. Materi JLPT-nya lengkap dan penjelasan dalam bahasa Indonesia bikin gampang paham.",
+                rating: 5,
+              },
+            ].map((testimonial, i) => (
+              <div
+                key={i}
+                className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100"
+              >
+                <div className="flex gap-1 mb-3">
+                  {Array.from({ length: testimonial.rating }).map((_, j) => (
+                    <span key={j} className="text-amber-400">
+                      &#9733;
+                    </span>
+                  ))}
+                </div>
+                <p className="text-gray-600 mb-4">&ldquo;{testimonial.text}&rdquo;</p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-red-100 to-amber-100 flex items-center justify-center text-sm font-bold text-[var(--color-primary)]">
+                    {testimonial.name[0]}
+                  </div>
+                  <div>
+                    <div className="font-semibold text-sm">
+                      {testimonial.name}
+                    </div>
+                    <div
+                      className="text-xs text-gray-500"
+                      dangerouslySetInnerHTML={{ __html: testimonial.role }}
+                    />
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -188,7 +381,7 @@ export default function Home() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-20 px-4">
+      <section id="pricing" className="py-20 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
             Pilih Paket Belajar
@@ -206,6 +399,7 @@ export default function Home() {
                   "3 pelajaran dasar",
                   "AI chat 5x/hari",
                   "Akses komunitas",
+                  "Progress tracking",
                 ],
                 cta: "Mulai Gratis",
                 highlight: false,
@@ -219,6 +413,7 @@ export default function Home() {
                   "AI chat unlimited",
                   "1 sesi grup/bulan",
                   "Progress tracking",
+                  "Materi audio",
                 ],
                 cta: "Pilih Basic",
                 highlight: false,
@@ -232,6 +427,7 @@ export default function Home() {
                   "2 sesi privat/bulan",
                   "JLPT mock test",
                   "Priority support",
+                  "Rekaman sesi",
                 ],
                 cta: "Pilih Premium",
                 highlight: true,
@@ -245,6 +441,7 @@ export default function Home() {
                   "4 sesi privat/bulan",
                   "Bimbingan karir",
                   "Sertifikat",
+                  "Persiapan visa",
                 ],
                 cta: "Pilih Intensive",
                 highlight: false,
@@ -252,10 +449,10 @@ export default function Home() {
             ].map((plan, i) => (
               <div
                 key={i}
-                className={`rounded-2xl p-6 ${
+                className={`rounded-2xl p-6 transition-all duration-300 hover:shadow-lg ${
                   plan.highlight
                     ? "bg-[var(--color-primary)] text-white ring-4 ring-red-200 scale-105"
-                    : "bg-white border border-gray-200"
+                    : "bg-white border border-gray-200 hover:-translate-y-1"
                 }`}
               >
                 {plan.highlight && (
@@ -263,11 +460,7 @@ export default function Home() {
                     PALING POPULER
                   </div>
                 )}
-                <h3
-                  className={`text-lg font-semibold mb-1 ${plan.highlight ? "" : ""}`}
-                >
-                  {plan.name}
-                </h3>
+                <h3 className="text-lg font-semibold mb-1">{plan.name}</h3>
                 <div className="text-3xl font-bold mb-1">
                   {plan.price}
                   <span
@@ -284,15 +477,16 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <button
-                  className={`w-full py-2 rounded-lg font-medium transition ${
+                <Link
+                  href="/register"
+                  className={`block w-full py-2 rounded-lg font-medium transition text-center ${
                     plan.highlight
                       ? "bg-white text-[var(--color-primary)] hover:bg-gray-100"
                       : "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)]"
                   }`}
                 >
                   {plan.cta}
-                </button>
+                </Link>
               </div>
             ))}
           </div>
@@ -304,12 +498,12 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-20 px-4 bg-white">
+      <section id="faq" className="py-20 px-4 bg-[var(--color-light)]">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
             Pertanyaan Umum
           </h2>
-          <div className="space-y-6">
+          <div className="space-y-4">
             {[
               {
                 q: "Apakah saya perlu pengalaman bahasa Jepang sebelumnya?",
@@ -331,14 +525,22 @@ export default function Home() {
                 q: "Apakah ada sertifikat?",
                 a: "Ya, untuk paket Intensive. Kami juga membantu persiapan ujian JLPT resmi.",
               },
+              {
+                q: "Apakah bisa belajar di handphone?",
+                a: "Ya! Platform kami 100% responsive dan bisa diakses dari browser handphone. Aplikasi mobile akan segera hadir.",
+              },
+              {
+                q: "Bagaimana jika saya tidak puas?",
+                a: "Kami menawarkan trial gratis 7 hari. Jika tidak puas, bisa berhenti kapan saja tanpa biaya tambahan.",
+              },
             ].map((item, i) => (
               <details
                 key={i}
-                className="border border-gray-200 rounded-xl p-4 group"
+                className="bg-white border border-gray-200 rounded-xl p-4 group"
               >
                 <summary className="font-semibold cursor-pointer list-none flex items-center justify-between">
                   {item.q}
-                  <span className="text-gray-400 group-open:rotate-180 transition-transform">
+                  <span className="text-gray-400 group-open:rotate-180 transition-transform ml-2 shrink-0">
                     &#9660;
                   </span>
                 </summary>
@@ -359,63 +561,24 @@ export default function Home() {
             Bergabung dengan ratusan pelajar Indonesia yang sudah memulai
             perjalanan mereka ke Jepang.
           </p>
-          <a
-            href="#pricing"
-            className="inline-block bg-white text-[var(--color-primary)] px-8 py-4 rounded-xl text-lg font-semibold hover:bg-gray-100 transition shadow-lg"
-          >
-            Mulai Gratis Sekarang
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/register"
+              className="inline-block bg-white text-[var(--color-primary)] px-8 py-4 rounded-xl text-lg font-semibold hover:bg-gray-100 transition shadow-lg"
+            >
+              Mulai Gratis Sekarang
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-block border-2 border-white text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white/10 transition"
+            >
+              Hubungi Kami
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-12 px-4 bg-[var(--color-dark)] text-gray-400">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-8">
-          <div>
-            <div className="flex items-center gap-2 mb-3">
-              <span className="text-2xl">🇯🇵</span>
-              <span className="text-xl font-bold text-white">NihonGo!</span>
-            </div>
-            <p className="text-sm max-w-xs">
-              Platform belajar bahasa Jepang modern untuk orang Indonesia.
-              Langsung dari Jepang.
-            </p>
-          </div>
-          <div className="flex gap-12 text-sm">
-            <div>
-              <h4 className="text-white font-semibold mb-3">Platform</h4>
-              <ul className="space-y-2">
-                <li>
-                  <a href="#features" className="hover:text-white">
-                    Fitur
-                  </a>
-                </li>
-                <li>
-                  <a href="#pricing" className="hover:text-white">
-                    Harga
-                  </a>
-                </li>
-                <li>
-                  <a href="#faq" className="hover:text-white">
-                    FAQ
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-white font-semibold mb-3">Kontak</h4>
-              <ul className="space-y-2">
-                <li>Instagram</li>
-                <li>WhatsApp</li>
-                <li>Email</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div className="max-w-6xl mx-auto border-t border-gray-700 mt-8 pt-8 text-center text-sm">
-          &copy; 2026 NihonGo! All rights reserved.
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
