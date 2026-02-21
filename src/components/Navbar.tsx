@@ -3,8 +3,6 @@
 import { useState } from "react";
 import Link from "next/link";
 
-const basePath = "/Learn-japanese";
-
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
